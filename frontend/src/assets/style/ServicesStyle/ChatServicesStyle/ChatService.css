@@ -1,0 +1,255 @@
+/*-----------------------------*\
+      #CHAT BOX
+\*-----------------------------*/
+
+.chat-container-main-wrapper {
+  display: flex;
+  width: 850px;
+  height: 600px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-sidebar {
+  width: 300px;
+  border-right: 1px solid #e5e5ea;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header-top-bar {
+  padding: 15px;
+}
+
+.user-search-bar {
+  width: 100%;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-size: 15px;
+  background-color: #e5e5ea;
+}
+
+.user-search-bar::placeholder {
+  color: #8e8e93;
+}
+
+.chat-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-last-message {
+  display: flex;
+  font-size: 14px;
+  color: #8e8e93;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%;
+  align-items: flex-end;
+}
+
+.unread-badge {
+  background-color: #5E5CE6;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+.chat-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.massage-box-chat-header {
+  display: flex;
+  background: #f0f0f0;
+  backdrop-filter: blur(10px);
+  justify-content: space-between;
+  padding: 4px 24px 4px 15px;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.user-profile-section {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.massage-box-top-bar-user-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #252525;
+}
+
+.call-buttons-container {
+  display: flex;
+  gap: 15px;
+  background: transparent;
+}
+
+.circle-icon-btn {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.circle-icon-btn:hover {
+  transform: scale(1.05);
+}
+
+.circle-icon-btn:active {
+  transform: scale(0.95);
+}
+
+.icon-btn-audio-call-btn, .icon-btn-video-call-btn {
+  background: transparent;
+  border: none;
+}
+
+.icon-btn-video-call-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: #5E5CE6;
+}
+
+.icon-btn-audio-call-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: #5E5CE6;
+}
+
+.call-icon-img {
+  width: 24px;
+  height: 24px;
+}
+
+.no-chat-selected {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #5E5CE6;
+}
+
+.no-chat-selected svg {
+  margin-bottom: 16px;
+}
+
+.no-chat-selected p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.user-status {
+  display: flex;
+  align-items: flex-end;
+}
+
+.active-status {
+  width: 10px;
+  height: 10px;
+  background-color: #34C759;
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+  border: 2px solid #ffffff;
+  margin: 0px 0px 2px 0px;
+}
+
+.active-now {
+  font-size: 12px;
+  color: #34C759;
+  margin: 0px 4px 1px 0px;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+.welcome-icon {
+  margin-bottom: 20px;
+}
+
+.welcome-title {
+  font-size: 20px;
+  color: #5E5CE6;
+  margin-bottom: 16px;
+}
+
+.welcome-message {
+  font-size: 16px;
+  color: #333;
+  max-width: 400px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.encryption-notice {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.encryption-notice svg {
+  margin-right: 8px;
+}
+
+.icon-btn-user-info-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.icon-btn-user-info-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: #5E5CE6;
+}
+
+.icon-btn-user-info-btn:hover svg {
+  fill: #4a49b7;
+}
+
+.chat-input-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  z-index: 10;
+}
+
+

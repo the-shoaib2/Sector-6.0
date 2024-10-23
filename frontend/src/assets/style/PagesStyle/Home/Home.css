@@ -1,0 +1,510 @@
+/* ------------------------------------------------
+   Home Container
+   - Centers the content both horizontally and vertically
+   - Adds an optional background color
+--------------------------------------------------- */
+.home-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* background-image: url('./background.gif'); */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    backdrop-filter: blur(30px);
+    background-color: #49494918;
+}
+
+/* ------------------------------------------------
+   User Icon Container
+   - Container for the user image and name
+   - Includes padding, border-radius, and shadow
+   - Adds hover effects for interactivity
+--------------------------------------------------- */
+.user-image-icon-container {
+    /* display: flex; */
+    align-items: center;
+    background: #fff;
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on user card */
+.user-image-icon-container:hover {
+    background: #fdfdfd;
+    transform: scale(1.002);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------------------------------------------
+   Avatar Image Styles
+   - Styles for the user avatar image
+   - Includes size, border, and hover effects
+--------------------------------------------------- */
+.user-icon-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user-icon-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease;
+}
+
+.user-icon-image img.fade-out {
+    opacity: 0;
+}
+
+.user-icon-image:hover {
+    transform: scale(1.002);
+    box-shadow: 0 0 10px rgba(98, 0, 255, 0.63);
+}
+
+
+
+.close-profile-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.close-profile-button.fade-in {
+    opacity: 1;
+}
+
+.close-profile-button:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.close-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.close-icon::before,
+.close-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transform-origin: center;
+}
+
+.close-icon::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-icon::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+.services-close-button{
+    position: absolute;
+    top: 30px;
+    right: 230px;
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.services-close-button:hover {
+    background: #c0392b; 
+    color: #333; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.services-close-icon {
+    width: 30px; 
+    height: 30px; 
+    fill: #e74c3c; 
+    transition: fill 0.3s ease; 
+}
+
+.services-close-button:hover .services-close-icon {
+    fill: #ffffff; 
+}
+
+
+
+
+/* ------------------------------------------------
+   User Name Styles
+   - Styles for the user's name
+   - Includes font size, color, and line height
+--------------------------------------------------- */
+.user-name {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+}
+
+
+
+/* ------------------------------------------------
+   Popup Overlay Styles
+   - Covers the whole screen with a semi-transparent background
+   - Centers the popup container
+--------------------------------------------------- */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it appears above other content */
+}
+
+/* ------------------------------------------------
+   Inactive Account Popup Container
+   - Styles the popup container with padding, background, and border radius
+--------------------------------------------------- */
+.inactive-account-message-container {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Inactive Account Message Container */
+.inactive-account-message-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.inactive-account-message-container p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Confirm Account Button */
+.confirm-account-button {
+    background-color: #4E4CC6; /* Purple color */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.confirm-account-button:hover {
+    background-color: #3d3c9b; /* A different shade of purple for hover */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.confirm-account-link {
+    text-decoration: none;
+}
+
+.main-home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-side-panel {
+    position: fixed;
+    top: 0;
+    right: -700px;
+    width: 700px;
+    height: 100vh;
+    transition: right 0.3s ease-in-out;
+    overflow-y: hidden;
+}
+
+.profile-side-panel.show {
+    right: 0;
+}
+
+.centered-profile {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 100%;
+    max-width: 720px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    animation: fadeInforprofile 0.3s ease-in-out;
+}
+
+
+.main-container {
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, filter 0.3s ease-in-out;
+    opacity: 1;
+    visibility: visible;
+}
+
+.main-container.hide-services {
+    opacity: 0;
+    visibility: hidden;
+    filter: blur(5px);
+}
+
+.top-services-main-container{
+    display: flex;
+}
+
+.top-services-container{
+    display: flex;
+    width: 180px;
+    height: 100px;
+    margin: 8px;
+    border-radius: 15px;
+    background: #f1f1f1;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+
+}
+.services-level{
+    font-size: medium;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-input-container{
+    width: 100%;
+    height: 100px;
+    background: wheat;
+}
+.close-popup-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.close-popup-button:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.close-popup-button:focus {
+    outline: none;
+}
+
+.close-popup-button::before,
+.close-popup-button::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background-color: currentColor;
+}
+
+.close-popup-button::before {
+    transform: rotate(45deg);
+}
+
+.close-popup-button::after {
+    transform: rotate(-45deg);
+}
+
+.confirm-account-bar {
+    position: relative;
+    width: 100%;
+    background-color: #cfcfcf;
+    color: #333;
+    padding: 2px 100px;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    animation: fadeInBottomEffect 0.5s ease-out;
+    margin-top:-10px;
+    max-height: 40px;
+    overflow: hidden;
+}
+
+.confirm-account-message {
+    font-size: 14px;
+    text-align: center; /* Center text */
+    margin-right: 10px;
+    font-weight: 500;
+   color: #ff3131;
+}
+.confirm-email-button {
+    background-color:  #FF3B30;;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    text-decoration: none; /* This ensures no underline */
+    display: inline-block; /* This helps maintain button-like appearance */
+}
+
+.confirm-email-button:hover {
+    background-color: #4E4CC6;
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* Add this new style */
+.confirm-email-link {
+    text-decoration: none;
+}
+
+.top-services-container {
+    display: flex;
+    width: 180px;
+    height: 100px;
+    margin: 8px;
+    border-radius: 15px;
+    background: #f1f1f1;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.confirm-account-message.expired-message {
+    color: #FF3B30;
+    font-weight: bold;
+}
+
+.confirm-account-bar.warning {
+    background-color: #ffcccc;
+    color: #ff0000;
+}
+
+.confirm-account-bar.warning .confirm-email-button {
+    background-color: #ff0000;
+}
+
+.confirm-account-bar.warning .confirm-email-button:hover {
+    background-color: #cc0000;
+}
+
+.account-status-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.close-profile-button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-profile-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.close-profile-button::before,
+.close-profile-button::after {
+    content: '';
+    border-radius: 8px;
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: #333;
+}
+
